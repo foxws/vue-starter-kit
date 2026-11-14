@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use Foundation\Http\Middleware\AddCspHeaders;
-use Foundation\Http\Middleware\AddHorizonCspNonce;
-use Foundation\Http\Middleware\AddTelescopeCspNonce;
 use Foundation\Http\Middleware\SetCacheHeaders;
+use Foxws\Essentials\Csp\Middleware\AddHorizonCspNonce;
+use Foxws\Essentials\Csp\Middleware\AddTelescopeCspNonce;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Middleware\CheckAbilities;
 use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
+use Spatie\Csp\AddCspHeaders;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
 use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;

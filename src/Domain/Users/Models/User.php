@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Domain\Users\Models;
 
 use Database\Factories\UserFactory;
-use Domain\Shared\Casts\AsDateTime;
-use Domain\Shared\Concerns\HasUlidRouteKey;
 use Domain\Users\Collections\UserCollection;
 use Domain\Users\QueryBuilders\UserQueryBuilder;
 use Domain\Users\States\UserState;
+use Foxws\Essentials\Casts\AsDateTime;
+use Foxws\Essentials\Concerns\HasUlid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\CollectedBy;
+use Illuminate\Database\Eloquent\Attributes\RouteKey;
 use Illuminate\Database\Eloquent\Attributes\UseEloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,6 +33,7 @@ use Spatie\ModelStates\HasStates;
 use Spatie\Permission\Traits\HasRoles;
 
 #[CollectedBy(UserCollection::class)]
+#[RouteKey('ulid')]
 #[UseEloquentBuilder(UserQueryBuilder::class)]
 class User extends Authenticatable implements HasMedia, MustVerifyEmail, PasskeyUser
 {
@@ -42,7 +44,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail, Passkey
 
     use HasRoles;
     use HasStates;
-    use HasUlidRouteKey;
+    use HasUlid;
     use InteractsWithMedia;
     use Notifiable;
     use PasskeyAuthenticatable;
