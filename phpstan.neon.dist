@@ -1,0 +1,14 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - bootstrap/app.php
+        - config/
+        - database/
+        - routes/
+        - src/
+    checkOctaneCompatibility: true
+    checkAuthCallsWhenInRequestScope: true
+    parseModelCastsMethod: true

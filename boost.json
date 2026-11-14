@@ -1,0 +1,40 @@
+{
+    "agents": [
+        "claude_code"
+    ],
+    "cloud": false,
+    "guidelines": true,
+    "mcp": true,
+    "nightwatch": false,
+    "packages": [
+        "spatie/laravel-medialibrary",
+        "spatie/laravel-permission",
+        "spatie/laravel-responsecache",
+        "spatie/guidelines-skills",
+        "spatie/laravel-translatable",
+        "foxws/laravel-essentials",
+        "foxws/laravel-ddd"
+    ],
+    "sail": false,
+    "skills": [
+        "infer-conventions",
+        "fortify-development",
+        "laravel-best-practices",
+        "testing-best-practices",
+        "octane-development",
+        "wayfinder-development",
+        "telescope-debugging",
+        "inertia-vue-development",
+        "tailwindcss-development",
+        "laravel-ddd-development",
+        "laravel-essentials-development",
+        "medialibrary-development",
+        "laravel-permission-development",
+        "responsecache-development",
+        "translatable-development",
+        "spatie-javascript",
+        "spatie-laravel-php",
+        "spatie-security",
+        "spatie-version-control"
+    ]
+}

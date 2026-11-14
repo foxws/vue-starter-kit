@@ -1,0 +1,76 @@
+name: Code Quality
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: code-quality-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    php-code-quality:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        name: Code Quality
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v7
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.5
+                  extensions: dom, curl, libxml, mbstring, pcntl, exif, iconv, fileinfo, xml
+                  coverage: none
+
+            - name: Get Composer cache directory
+              id: composer-cache
+              run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+            - name: Cache Composer dependencies
+              uses: actions/cache@v6
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-composer-
+
+            - name: Install Composer dependencies
+              run: composer install --prefer-dist --no-interaction --no-progress
+
+            - name: Setup Vite+
+              uses: voidzero-dev/setup-vp@v1.22.0
+              with:
+                  node-version: 24
+                  cache: true
+
+            - name: Build application
+              run: |
+                  cp .env.ci .env
+                  php artisan key:generate
+                  php artisan wayfinder:generate
+                  vp build
+
+            - name: Run Laravel Pint
+              run: composer lint:check
+
+            - name: Run PHPStan
+              run: composer types:check
+
+            - name: Check formatting and linting
+              run: vp run check
+
+            - name: Run TypeScript type check
+              run: vp run types:check
+
+            - name: Run frontend unit tests
+              run: vp test
+              env:
+                  LARAVEL_BYPASS_ENV_CHECK: 1

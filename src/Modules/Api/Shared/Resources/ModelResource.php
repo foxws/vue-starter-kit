@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Api\Shared\Resources;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+/**
+ * @mixin Model
+ */
+class ModelResource extends JsonResource
+{
+    /**
+     * @var bool
+     */
+    public $preserveKeys = true;
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function toArray($request): array
+    {
+        return [
+            'id' => $this->getRouteKey(),
+            'subject' => $this->getMorphClass(),
+            'slug' => $this->whenHas('slug'),
+            'name' => $this->whenHas('name'),
+            'label' => $this->whenHas('label'),
+            'created_at' => $this->getAttribute('created_at')->toDateTimeString(),
+            'updated_at' => $this->getAttribute('updated_at')->toDateTimeString(),
+        ];
+    }
+}
