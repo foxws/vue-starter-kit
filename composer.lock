@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "35cd9199794d39b06a2b1996349062b4",
+    "content-hash": "ca0d20b9c82ce9fccc58d6f287cc8940",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -884,16 +884,16 @@
         },
         {
             "name": "foxws/laravel-essentials",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/foxws/laravel-essentials.git",
-                "reference": "b5da6a116ae685f7fe92738ee0c9c0c884031806"
+                "reference": "0cc9ba2580363826f0938349c854a73cf7bdc390"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/foxws/laravel-essentials/zipball/b5da6a116ae685f7fe92738ee0c9c0c884031806",
-                "reference": "b5da6a116ae685f7fe92738ee0c9c0c884031806",
+                "url": "https://api.github.com/repos/foxws/laravel-essentials/zipball/0cc9ba2580363826f0938349c854a73cf7bdc390",
+                "reference": "0cc9ba2580363826f0938349c854a73cf7bdc390",
                 "shasum": ""
             },
             "require": {
@@ -951,7 +951,7 @@
             ],
             "support": {
                 "issues": "https://github.com/foxws/laravel-essentials/issues",
-                "source": "https://github.com/foxws/laravel-essentials/tree/1.1.0"
+                "source": "https://github.com/foxws/laravel-essentials/tree/1.1.1"
             },
             "funding": [
                 {
@@ -959,8 +959,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-14T21:30:48+00:00",
-            "published-time": "2026-11-14T21:32:20+00:00"
+            "time": "2026-11-14T22:50:43+00:00",
+            "published-time": "2026-11-14T22:52:27+00:00"
         },
         {
             "name": "foxws/laravel-scout-builder",
