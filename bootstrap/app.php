@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Foundation\Http\Middleware\AddCspHeaders;
+use Foundation\Http\Middleware\AddHorizonCspNonce;
 use Foundation\Http\Middleware\AddTelescopeCspNonce;
 use Foundation\Http\Middleware\SetCacheHeaders;
 use Illuminate\Foundation\Application;
@@ -54,6 +55,7 @@ return Application::configure(basePath: $basePath)
             'ability' => CheckForAnyAbility::class,
             'cache' => SetCacheHeaders::class,
             'cache.bypass' => DoNotCacheResponse::class,
+            'csp.horizon' => AddHorizonCspNonce::class,
             'csp.telescope' => AddTelescopeCspNonce::class,
             'precognitive' => HandlePrecognitiveRequests::class,
             'permission' => PermissionMiddleware::class,

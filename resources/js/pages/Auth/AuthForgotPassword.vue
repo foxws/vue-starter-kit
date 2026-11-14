@@ -41,6 +41,7 @@ const onSubmit = () => form.submit()
       >
         <UInput
           v-model="form.email"
+          name="email"
           :model-modifiers="{ trim: true }"
           type="email"
           required

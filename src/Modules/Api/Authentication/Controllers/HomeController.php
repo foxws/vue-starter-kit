@@ -17,6 +17,7 @@ class HomeController
             'version' => 'v1',
             'links' => [
                 'user' => route('api.user'),
+                'users' => route('api.users.index'),
             ],
         ]);
     }

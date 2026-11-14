@@ -35,6 +35,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.password"
+          name="password"
           type="password"
           required
           autofocus

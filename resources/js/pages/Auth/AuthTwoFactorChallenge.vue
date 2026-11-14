@@ -48,6 +48,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.code"
+          name="code"
           inputmode="numeric"
           autocomplete="one-time-code"
           autofocus
@@ -63,6 +64,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.recovery_code"
+          name="recovery_code"
           autocomplete="one-time-code"
           autofocus
           size="lg"

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Users\States;
 
+use Domain\Shared\Contracts\DescribesState;
 use Domain\Users\Models\User;
 use Spatie\ModelStates\State;
 use Spatie\ModelStates\StateConfig;
@@ -11,7 +12,7 @@ use Spatie\ModelStates\StateConfig;
 /**
  * @extends State<User>
  */
-abstract class UserState extends State
+abstract class UserState extends State implements DescribesState
 {
     abstract public function label(): string;
 

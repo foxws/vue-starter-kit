@@ -11,7 +11,7 @@ use Foundation\Settings\GeneralSettings;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Laravel\Fortify\Features;
-use Modules\Web\Users\Responses\UserResourceProperty;
+use Modules\Web\Users\Responses\UserDataProperty;
 use Spatie\LaravelOptions\Options;
 
 class HandleInertiaRequests extends Middleware
@@ -29,10 +29,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'nonce' => fn (): string => app('csp-nonce'),
             'locale' => fn (): string => $request->getLocale(),
-            'auth' => fn (): UserResourceProperty => new UserResourceProperty(
-                user: $user,
-                appends: ['avatar'],
-            ),
+            'auth' => fn (): UserDataProperty => new UserDataProperty($user),
         ]);
     }
 

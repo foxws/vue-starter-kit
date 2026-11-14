@@ -9,7 +9,7 @@ use Modules\Api\Users\Controllers\UserController;
 Route::name('api.')->prefix('v1')->group(function () {
     Route::get('/', HomeController::class)->name('home');
 
-    Route::get('/user', UserController::class)
-        ->middleware('cache.bypass')
-        ->name('user');
+    // Users
+    Route::get('/user', [UserController::class, 'show'])->name('user');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 });

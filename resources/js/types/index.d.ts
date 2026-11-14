@@ -1,4 +1,5 @@
-import type { AvatarProps, BadgeProps, SelectItem } from '@nuxt/ui'
+import type { Locale } from '@/types/generated'
+import type { SelectItem } from '@nuxt/ui'
 
 export type FlashType = 'success' | 'error' | 'warning' | 'info' | 'primary'
 
@@ -21,34 +22,12 @@ export type OptionItem = SelectItem & {
   disabled?: boolean
 }
 
-export type Model = {
-  id: string
-  created_at: string
-  updated_at: string
-}
-
-export type ModelState = {
-  name: string
-  label: string
-  icon: string
-  color: BadgeProps['color']
-}
-
-export type User = Model & {
-  name: string
-  email: string
-  avatar?: AvatarProps['src'] | null
-  roles?: string[] | null
-  permissions?: string[] | null
-  state?: ModelState
-  two_factor_enabled: boolean
-  email_verified_at?: string | null
-}
+export type { StateData, UserData as User } from '@/types/generated'
 
 export type ApplicationSettings = {
   site_name: string
   timezone: string
-  default_locale: 'en-US' | 'nl-NL'
+  default_locale: Locale
   allow_registration: boolean
 }
 

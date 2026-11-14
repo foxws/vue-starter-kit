@@ -40,6 +40,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.email"
+          name="email"
           type="email"
           required
           readonly
@@ -55,6 +56,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.password"
+          name="password"
           type="password"
           required
           autofocus
@@ -70,6 +72,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.password_confirmation"
+          name="password_confirmation"
           type="password"
           required
           autocomplete="new-password"

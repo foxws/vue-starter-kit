@@ -11,11 +11,14 @@ A starting point for Laravel applications, built from the setup we use in [foxws
 - **Laravel 13** on PHP 8.4+, served by **Octane** with **FrankenPHP**
 - **Inertia v3**, **Vue 3**, **Nuxt UI 4** and **Tailwind CSS 4**, built with **Vite+**
 - **Fortify**: login, registration (toggled at runtime), password reset, email verification, password confirmation, two-factor authentication and passkeys
-- **Sanctum** for the API, with a versioned `/api/v1` and a `UserResource`
+- **Sanctum** for the API, with a versioned `/api/v1`
+- **Scout** with [foxws/laravel-scout-builder](https://github.com/foxws/laravel-scout-builder) for searchable, filterable and sortable endpoints (the `database` driver out of the box)
+- **spatie/laravel-data** with **spatie/laravel-typescript-transformer**, so data objects and enums become TypeScript types in `resources/js/types/generated.ts`
 - **Wayfinder** for typed routes and actions in TypeScript
+- **Horizon** for Redis queues and **spatie/laravel-health** for health checks
 - **foxws/laravel-ddd** and **foxws/laravel-essentials** for the domain layout and strict defaults
 - Spatie packages: **csp**, **medialibrary**, **model-states**, **options**, **permission**, **responsecache**, **settings**, **tags** and **translatable**
-- Tooling: **Pest**, **Larastan**, **Pint**, **Telescope**, **Pail**, **Pao**, **IDE Helper**, **Boost** and **spatie/guidelines-skills**
+- Tooling: **Pest** (with browser tests), **Larastan**, **Pint**, **Telescope**, **Pail**, **Pao**, **IDE Helper**, **Boost** and **spatie/guidelines-skills**
 
 ## Structure
 
@@ -48,11 +51,14 @@ The seeder creates `administrator@example.com` with the password `password` and 
 
 ## Endpoints
 
-| Method | URI            | Description                                    |
-| ------ | -------------- | ---------------------------------------------- |
-| GET    | `/`            | Home page                                      |
-| GET    | `/api/v1`      | API index (response cached)                    |
-| GET    | `/api/v1/user` | The authenticated user (Sanctum token or session) |
+| Method | URI             | Description                                                                                  |
+| ------ | --------------- | -------------------------------------------------------------------------------------------- |
+| GET    | `/`             | Home page                                                                                    |
+| GET    | `/api/v1`       | API index (response cached)                                                                  |
+| GET    | `/api/v1/user`  | The authenticated user (Sanctum token or session)                                            |
+| GET    | `/api/v1/users` | Search users with `?query=`, sort with `?sort=-newest`, page with `?page[number]=2` (admins) |
+| GET    | `/health`       | Health check results as JSON (super-admins)                                                  |
+| GET    | `/horizon`      | Horizon dashboard (super-admins)                                                             |
 
 ## Commands
 
@@ -60,9 +66,25 @@ The seeder creates `administrator@example.com` with the password `password` and 
 composer dev            # Octane, queue, logs and Vite
 composer test           # Pint check and Pest
 composer types:check    # Larastan
+composer types:generate # Write TypeScript types for #[TypeScript] classes and enums
 pnpm run check:fix      # Format and lint JS, TS and Vue
 pnpm run types:check    # vue-tsc
 ```
+
+## Testing
+
+`php artisan test` runs the unit, feature and browser suites. Browser tests use [Pest's browser plugin](https://pestphp.com/docs/browser-testing) and need Chromium:
+
+```bash
+npx playwright install --with-deps chromium
+php artisan test --testsuite=Browser
+```
+
+## Optional packages
+
+These depend on the project, so they aren't installed:
+
+- [spatie/laravel-db-snapshots](https://github.com/spatie/laravel-db-snapshots) for database dumps
 
 ## License
 

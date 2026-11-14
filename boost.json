@@ -13,7 +13,8 @@
         "spatie/guidelines-skills",
         "spatie/laravel-translatable",
         "foxws/laravel-essentials",
-        "foxws/laravel-ddd"
+        "foxws/laravel-ddd",
+        "foxws/laravel-scout-builder"
     ],
     "sail": false,
     "skills": [
@@ -21,13 +22,16 @@
         "fortify-development",
         "laravel-best-practices",
         "testing-best-practices",
+        "configuring-horizon",
         "octane-development",
+        "scout-development",
         "wayfinder-development",
         "telescope-debugging",
         "inertia-vue-development",
         "tailwindcss-development",
         "laravel-ddd-development",
         "laravel-essentials-development",
+        "scout-builder-development",
         "medialibrary-development",
         "laravel-permission-development",
         "responsecache-development",

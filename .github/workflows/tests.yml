@@ -64,5 +64,8 @@ jobs:
                   php artisan wayfinder:generate
                   vp build
 
+            - name: Install Playwright browsers
+              run: npx playwright install --with-deps chromium
+
             - name: Execute tests
               run: php artisan test

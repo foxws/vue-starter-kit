@@ -39,6 +39,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.name"
+          name="name"
           :model-modifiers="{ trim: true }"
           required
           autofocus
@@ -54,6 +55,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.email"
+          name="email"
           :model-modifiers="{ trim: true }"
           type="email"
           required
@@ -70,6 +72,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.password"
+          name="password"
           type="password"
           required
           autocomplete="new-password"
@@ -84,6 +87,7 @@ const onSubmit = () =>
       >
         <UInput
           v-model="form.password_confirmation"
+          name="password_confirmation"
           type="password"
           required
           autocomplete="new-password"

@@ -23,6 +23,7 @@ use Laravel\Fortify\Contracts\PasskeyUser;
 use Laravel\Fortify\PasskeyAuthenticatable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Scout\Searchable;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -45,6 +46,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail, Passkey
     use InteractsWithMedia;
     use Notifiable;
     use PasskeyAuthenticatable;
+    use Searchable;
     use SoftDeletes;
     use TwoFactorAuthenticatable;
 
@@ -116,6 +118,19 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail, Passkey
             ->addMediaConversion('thumb')
             ->nonQueued()
             ->fit(Fit::Crop, 256, 256);
+    }
+
+    /**
+     * The database engine searches these columns; other engines index them.
+     *
+     * @return array<string, mixed>
+     */
+    public function toSearchableArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'email' => $this->email,
+        ];
     }
 
     public function isAdmin(): bool

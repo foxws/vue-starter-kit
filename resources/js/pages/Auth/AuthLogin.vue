@@ -56,6 +56,7 @@ const {
       >
         <UInput
           v-model="form.email"
+          name="email"
           :model-modifiers="{ string: true, trim: true }"
           type="email"
           required
@@ -73,6 +74,7 @@ const {
       >
         <UInput
           v-model="form.password"
+          name="password"
           :model-modifiers="{ string: true, trim: true }"
           type="password"
           required
@@ -85,6 +87,7 @@ const {
       <div class="flex items-center justify-between gap-2">
         <UCheckbox
           v-model="form.remember"
+          name="remember"
           :model-modifiers="{ nullable: true }"
           id="remember"
           label="Remember me"
