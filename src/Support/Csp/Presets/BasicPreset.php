@@ -22,7 +22,6 @@ class BasicPreset implements Preset
 
         // Configure the CSP policy with directives and sources
         $policy
-            ->add(Directive::UPGRADE_INSECURE_REQUESTS, Value::NO_VALUE)
             ->add(Directive::BASE, Keyword::SELF)
             ->add(Directive::CONNECT, Keyword::SELF)
             ->add(Directive::CONNECT, Scheme::BLOB)
@@ -43,6 +42,16 @@ class BasicPreset implements Preset
             ->add([Directive::FRAME, Directive::FONT, Directive::STYLE, Directive::IMG], "*.{$host}")
             ->addNonce(Directive::SCRIPT);
 
+        // Only upgrade requests when the app is served over HTTPS; on plain HTTP (local
+        // development, browser tests) it would break same-origin redirects.
+        if ($this->isSecure()) {
+            $policy->add(Directive::UPGRADE_INSECURE_REQUESTS, Value::NO_VALUE);
+        }
+    }
+
+    protected function isSecure(): bool
+    {
+        return Uri::of(Config::string('app.url', 'localhost'))->scheme() === 'https';
     }
 
     protected function getHost(): ?string
