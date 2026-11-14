@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96291b59d2e67e74718a36fb30bd8649",
+    "content-hash": "35cd9199794d39b06a2b1996349062b4",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -808,16 +808,16 @@
         },
         {
             "name": "foxws/laravel-ddd",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/foxws/laravel-ddd.git",
-                "reference": "7245a6a92a6a5a1af4d999f30ec6c057bb080118"
+                "reference": "e327cff705a86a27953920c5522f6b67f05ec074"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/foxws/laravel-ddd/zipball/7245a6a92a6a5a1af4d999f30ec6c057bb080118",
-                "reference": "7245a6a92a6a5a1af4d999f30ec6c057bb080118",
+                "url": "https://api.github.com/repos/foxws/laravel-ddd/zipball/e327cff705a86a27953920c5522f6b67f05ec074",
+                "reference": "e327cff705a86a27953920c5522f6b67f05ec074",
                 "shasum": ""
             },
             "require": {
@@ -871,7 +871,7 @@
             ],
             "support": {
                 "issues": "https://github.com/foxws/laravel-ddd/issues",
-                "source": "https://github.com/foxws/laravel-ddd/tree/1.0.0"
+                "source": "https://github.com/foxws/laravel-ddd/tree/1.1.0"
             },
             "funding": [
                 {
@@ -879,24 +879,25 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-12T13:37:40+00:00",
-            "published-time": "2026-11-12T13:38:21+00:00"
+            "time": "2026-11-14T21:30:26+00:00",
+            "published-time": "2026-11-14T21:32:21+00:00"
         },
         {
             "name": "foxws/laravel-essentials",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/foxws/laravel-essentials.git",
-                "reference": "d5a18e7c139d3c4dd6d751dd49fbe515defa5bb9"
+                "reference": "b5da6a116ae685f7fe92738ee0c9c0c884031806"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/foxws/laravel-essentials/zipball/d5a18e7c139d3c4dd6d751dd49fbe515defa5bb9",
-                "reference": "d5a18e7c139d3c4dd6d751dd49fbe515defa5bb9",
+                "url": "https://api.github.com/repos/foxws/laravel-essentials/zipball/b5da6a116ae685f7fe92738ee0c9c0c884031806",
+                "reference": "b5da6a116ae685f7fe92738ee0c9c0c884031806",
                 "shasum": ""
             },
             "require": {
+                "illuminate/database": "^13.0",
                 "illuminate/support": "^13.0",
                 "php": "^8.4"
             },
@@ -908,7 +909,11 @@
                 "pestphp/pest": "^5.0",
                 "pestphp/pest-plugin-laravel": "^5.0",
                 "pestphp/pest-plugin-type-coverage": "^5.0.2",
-                "phpstan/extension-installer": "^1.4"
+                "phpstan/extension-installer": "^1.4",
+                "spatie/laravel-csp": "^3.31"
+            },
+            "suggest": {
+                "spatie/laravel-csp": "Required to use the CSP presets, nonce generator and middleware (^3.31)."
             },
             "type": "library",
             "extra": {
@@ -946,7 +951,7 @@
             ],
             "support": {
                 "issues": "https://github.com/foxws/laravel-essentials/issues",
-                "source": "https://github.com/foxws/laravel-essentials/tree/1.0.0"
+                "source": "https://github.com/foxws/laravel-essentials/tree/1.1.0"
             },
             "funding": [
                 {
@@ -954,8 +959,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-12T13:24:22+00:00",
-            "published-time": "2026-11-12T13:25:01+00:00"
+            "time": "2026-11-14T21:30:48+00:00",
+            "published-time": "2026-11-14T21:32:20+00:00"
         },
         {
             "name": "foxws/laravel-scout-builder",
