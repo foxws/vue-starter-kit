@@ -29,3 +29,20 @@ it('shares the site name from the application settings', function () {
     $this->get(route('login'))
         ->assertInertia(fn ($page) => $page->where('app', 'Boilerplate Test'));
 });
+
+it('gives the auth pages relative urls, whatever scheme urls are generated with', function () {
+    $this->get(route('login'))
+        ->assertInertia(fn ($page) => $page
+            ->where('action', '/login')
+            ->where('forgotPasswordUrl', '/forgot-password'));
+});
+
+it('renders the reset password page with the token from the link', function () {
+    $this->get(route('password.reset', ['token' => 'secret-token', 'email' => 'jane@example.com']))
+        ->assertSuccessful()
+        ->assertInertia(fn ($page) => $page
+            ->component('Auth/AuthResetPassword')
+            ->where('action', '/reset-password')
+            ->where('token', 'secret-token')
+            ->where('email', 'jane@example.com'));
+});
