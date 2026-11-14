@@ -69,3 +69,11 @@ jobs:
 
             - name: Execute tests
               run: php artisan test
+
+            - name: Upload browser test screenshots
+              if: failure()
+              uses: actions/upload-artifact@v7
+              with:
+                  name: browser-screenshots-php-${{ matrix.php }}
+                  path: tests/Browser/Screenshots
+                  if-no-files-found: ignore

@@ -69,44 +69,44 @@ class FortifyServiceProvider extends ServiceProvider
     protected function configureViews(): static
     {
         Fortify::loginView(fn () => Inertia::render('Auth/AuthLogin', [
-            'action' => route('login.store'),
+            'action' => route('login.store', absolute: false),
             'status' => session('status'),
-            'forgotPasswordUrl' => Features::enabled(Features::resetPasswords()) ? route('password.request') : null,
-            'registerUrl' => $this->registrationAllowed() ? route('register') : null,
+            'forgotPasswordUrl' => Features::enabled(Features::resetPasswords()) ? route('password.request', absolute: false) : null,
+            'registerUrl' => $this->registrationAllowed() ? route('register', absolute: false) : null,
         ]));
 
         Fortify::registerView(function () {
             abort_unless($this->registrationAllowed(), 404);
 
             return Inertia::render('Auth/AuthRegister', [
-                'action' => route('register.store'),
-                'loginUrl' => route('login'),
+                'action' => route('register.store', absolute: false),
+                'loginUrl' => route('login', absolute: false),
             ]);
         });
 
         Fortify::requestPasswordResetLinkView(fn () => Inertia::render('Auth/AuthForgotPassword', [
-            'action' => route('password.email'),
-            'loginUrl' => route('login'),
+            'action' => route('password.email', absolute: false),
+            'loginUrl' => route('login', absolute: false),
             'status' => session('status'),
         ]));
 
         Fortify::resetPasswordView(fn (Request $request) => Inertia::render('Auth/AuthResetPassword', [
-            'action' => route('password.update'),
+            'action' => route('password.update', absolute: false),
             'token' => $request->route('token'),
             'email' => $request->string('email')->value(),
         ]));
 
         Fortify::verifyEmailView(fn () => Inertia::render('Auth/AuthVerifyEmail', [
-            'action' => route('verification.send'),
+            'action' => route('verification.send', absolute: false),
             'status' => session('status'),
         ]));
 
         Fortify::confirmPasswordView(fn () => Inertia::render('Auth/AuthConfirmPassword', [
-            'action' => route('password.confirm.store'),
+            'action' => route('password.confirm.store', absolute: false),
         ]));
 
         Fortify::twoFactorChallengeView(fn () => Inertia::render('Auth/AuthTwoFactorChallenge', [
-            'action' => route('two-factor.login.store'),
+            'action' => route('two-factor.login.store', absolute: false),
         ]));
 
         return $this;
