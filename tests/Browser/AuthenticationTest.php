@@ -6,7 +6,7 @@ use Domain\Users\Models\User;
 
 it('renders the home page without javascript errors', function () {
     visit('/')
-        ->assertSee('Laravel Boilerplate')
+        ->assertSee('Vue Starter Kit')
         ->assertNoJavaScriptErrors();
 });
 

@@ -54,8 +54,8 @@ const features = [
 
   <div class="flex flex-col gap-12">
     <UPageHero
-      title="Laravel Boilerplate"
-      description="A starting point for Laravel applications with Inertia, Vue, Fortify and Octane."
+      title="Vue Starter Kit"
+      description="A Laravel starter kit with Inertia, Vue, Fortify and Octane."
       :links="links"
     />
 

@@ -1,10 +1,10 @@
-# Laravel Boilerplate
+# Vue Starter Kit
 
-[![Tests](https://github.com/foxws/laravel-boilerplate/actions/workflows/tests.yml/badge.svg)](https://github.com/foxws/laravel-boilerplate/actions/workflows/tests.yml)
-[![Code Quality](https://github.com/foxws/laravel-boilerplate/actions/workflows/code-quality.yml/badge.svg)](https://github.com/foxws/laravel-boilerplate/actions/workflows/code-quality.yml)
-[![License](https://img.shields.io/github/license/foxws/laravel-boilerplate)](LICENSE)
+[![Tests](https://github.com/foxws/vue-starter-kit/actions/workflows/tests.yml/badge.svg)](https://github.com/foxws/vue-starter-kit/actions/workflows/tests.yml)
+[![Code Quality](https://github.com/foxws/vue-starter-kit/actions/workflows/code-quality.yml/badge.svg)](https://github.com/foxws/vue-starter-kit/actions/workflows/code-quality.yml)
+[![License](https://img.shields.io/github/license/foxws/vue-starter-kit)](LICENSE)
 
-A starting point for Laravel applications, built from the setup we use in [foxws/app](https://github.com/foxws/app) and [stry](https://github.com/francoism90/stry): Inertia with Vue and Nuxt UI, Fortify authentication, Octane on FrankenPHP and a domain-driven `src/` layout.
+A Laravel starter kit, built from the setup we use in [foxws/app](https://github.com/foxws/app) and [stry](https://github.com/francoism90/stry): Inertia with Vue and Nuxt UI, Fortify authentication, Octane on FrankenPHP and a domain-driven `src/` layout.
 
 ## What's included
 

@@ -1,17 +1,16 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "foxws/laravel-boilerplate",
+    "name": "foxws/vue-starter-kit",
     "type": "project",
-    "description": "A Laravel boilerplate with Inertia, Vue, Fortify, Octane (FrankenPHP) and a domain-driven structure.",
+    "description": "A Laravel starter kit with Inertia, Vue, Fortify, Octane (FrankenPHP) and a domain-driven structure.",
     "keywords": [
         "laravel",
-        "boilerplate",
-        "template",
         "inertia",
         "vue",
         "octane",
         "frankenphp",
-        "ddd"
+        "ddd",
+        "starter-kit"
     ],
     "license": "MIT",
     "require": {
