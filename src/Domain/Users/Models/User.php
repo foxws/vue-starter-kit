@@ -146,6 +146,19 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail, Passkey
     }
 
     /**
+     * The private channel authorized in routes/channels.php.
+     */
+    public function broadcastChannel(): string
+    {
+        return "users.{$this->getRouteKey()}";
+    }
+
+    public function receivesBroadcastNotificationsOn(): string
+    {
+        return $this->broadcastChannel();
+    }
+
+    /**
      * @return Attribute<?string, never>
      */
     protected function avatar(): Attribute

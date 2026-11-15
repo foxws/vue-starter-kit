@@ -29,6 +29,7 @@ return Application::configure(basePath: $basePath)
         web: __DIR__.'/../routes/web.php',
         api: __DIR__.'/../routes/api.php',
         commands: __DIR__.'/../routes/console.php',
+        channels: __DIR__.'/../routes/channels.php',
         health: '/up',
         then: function () {
             // Inertia action routes (web middleware for session, CSRF, and Inertia handling)

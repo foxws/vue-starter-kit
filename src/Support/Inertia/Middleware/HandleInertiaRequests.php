@@ -9,6 +9,7 @@ use Domain\Shared\Enums\Locale;
 use Domain\Users\Models\User;
 use Foundation\Settings\GeneralSettings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Inertia\Middleware;
 use Laravel\Fortify\Features;
 use Modules\Web\Users\Responses\UserDataProperty;
@@ -49,6 +50,12 @@ class HandleInertiaRequests extends Middleware
                 'resetPasswords' => Features::enabled(Features::resetPasswords()),
                 'twoFactor' => Features::enabled(Features::twoFactorAuthentication()),
                 'passkeys' => Features::enabled(Features::passkeys()),
+            ],
+            'echo' => fn (): array => [
+                'key' => Config::string('reverb.apps.apps.0.options.wsKey', ''),
+                'host' => Config::string('reverb.apps.apps.0.options.wsHost', 'localhost'),
+                'port' => Config::integer('reverb.apps.apps.0.options.wsPort', 8080),
+                'scheme' => Config::string('reverb.apps.apps.0.options.wsScheme', 'http'),
             ],
         ]);
     }

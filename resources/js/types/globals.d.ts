@@ -1,4 +1,11 @@
-import type { Features, FlashData, OptionItem, User } from '@/types'
+import type { EchoConfig, Features, FlashData, OptionItem, User } from '@/types'
+import type Pusher from 'pusher-js'
+
+declare global {
+  interface Window {
+    Pusher: typeof Pusher
+  }
+}
 
 declare module '@inertiajs/core' {
   export interface InertiaConfig {
@@ -13,5 +20,6 @@ declare module '@inertiajs/core' {
     readonly languages: OptionItem[] | undefined
     readonly features: Features | undefined
     readonly auth: User | null | undefined
+    readonly echo: EchoConfig | undefined
   }
 }
