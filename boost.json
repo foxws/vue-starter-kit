@@ -27,6 +27,7 @@
         "scout-development",
         "wayfinder-development",
         "telescope-debugging",
+        "health-checks-development",
         "inertia-vue-development",
         "tailwindcss-development",
         "laravel-ddd-development",

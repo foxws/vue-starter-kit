@@ -15,7 +15,7 @@ A Laravel starter kit, built from the setup we use in [foxws/app](https://github
 - **Scout** with [foxws/laravel-scout-builder](https://github.com/foxws/laravel-scout-builder) for searchable, filterable and sortable endpoints (the `database` driver out of the box)
 - **spatie/laravel-data** with **spatie/laravel-typescript-transformer**, so data objects and enums become TypeScript types in `resources/js/types/generated.ts`
 - **Wayfinder** for typed routes and actions in TypeScript
-- **Horizon** for Redis queues and **spatie/laravel-health** for health checks
+- **Horizon** for Redis queues; see [docs/health-checks.md](docs/health-checks.md) for container health checks or adding spatie/laravel-health
 - **foxws/laravel-ddd** and **foxws/laravel-essentials** for the domain layout and strict defaults
 - Spatie packages: **csp**, **medialibrary**, **model-states**, **options**, **permission**, **responsecache**, **settings**, **tags** and **translatable**
 - Tooling: **Pest** (with browser tests), **Larastan**, **Pint**, **Telescope**, **Pail**, **Pao**, **IDE Helper**, **Boost** and **spatie/guidelines-skills**
@@ -57,7 +57,6 @@ The seeder creates `administrator@example.com` with the password `password` and 
 | GET    | `/api/v1`       | API index (response cached)                                                                  |
 | GET    | `/api/v1/user`  | The authenticated user (Sanctum token or session)                                            |
 | GET    | `/api/v1/users` | Search users with `?query=`, sort with `?sort=-newest`, page with `?page[number]=2` (admins) |
-| GET    | `/health`       | Health check results as JSON (super-admins)                                                  |
 | GET    | `/horizon`      | Horizon dashboard (super-admins)                                                             |
 
 ## Commands
