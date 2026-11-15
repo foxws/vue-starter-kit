@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import SettingsModal from '@/components/Settings/SettingsModal.vue'
 import { useAuth } from '@/composables/auth'
-import { health } from '@/routes'
 import { index as horizon } from '@/routes/horizon'
 import type { DropdownMenuItem } from '@nuxt/ui'
 import { computed, ref } from 'vue'
@@ -40,13 +39,6 @@ const items = computed<DropdownMenuItem[][]>(() => [
             label: 'Queue',
             icon: 'i-lucide-layers',
             to: horizon.url(),
-            target: '_blank',
-            external: true,
-          },
-          {
-            label: 'Health',
-            icon: 'i-lucide-heart-pulse',
-            to: health.url(),
             target: '_blank',
             external: true,
           },
