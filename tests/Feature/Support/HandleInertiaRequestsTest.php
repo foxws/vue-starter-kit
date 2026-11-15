@@ -46,3 +46,20 @@ it('renders the reset password page with the token from the link', function () {
             ->where('token', 'secret-token')
             ->where('email', 'jane@example.com'));
 });
+
+it('shares where browsers reach reverb as the echo config', function () {
+    config([
+        'reverb.apps.apps.0.options.wsKey' => 'app-key',
+        'reverb.apps.apps.0.options.wsHost' => 'ws.example.test',
+        'reverb.apps.apps.0.options.wsPort' => 443,
+        'reverb.apps.apps.0.options.wsScheme' => 'https',
+    ]);
+
+    $this->get(route('login'))
+        ->assertInertia(fn ($page) => $page->where('echo', [
+            'key' => 'app-key',
+            'host' => 'ws.example.test',
+            'port' => 443,
+            'scheme' => 'https',
+        ]));
+});

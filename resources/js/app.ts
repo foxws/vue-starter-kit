@@ -1,7 +1,10 @@
 import { createInertiaApp } from '@inertiajs/vue3'
+import { echo } from '@inertiajs/vue3/echo'
 import ui from '@nuxt/ui/vue-plugin'
 
+import { bootEcho } from '@/plugins/echo'
 import '@/plugins/iconify'
+import '@/plugins/pusher'
 import '@/plugins/vueuse'
 
 import AppLayout from '@/layouts/AppLayout.vue'
@@ -30,7 +33,9 @@ void createInertiaApp({
     color: '#d8b4fe',
   },
   nonce: cspNonce,
-  withApp(app) {
+  live: echo(),
+  withApp(app, { page }) {
     app.use(ui)
+    bootEcho(page.props.echo)
   },
 })

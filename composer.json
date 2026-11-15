@@ -24,6 +24,7 @@
         "laravel/horizon": "^5.51",
         "laravel/octane": "^2.24.0",
         "laravel/prompts": "^0.3.27",
+        "laravel/reverb": "^1.13",
         "laravel/sanctum": "^4.4.0",
         "laravel/scout": "^11.10",
         "laravel/tinker": "^3.1.0",

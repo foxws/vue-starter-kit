@@ -184,6 +184,7 @@ export default defineConfig(({ mode }) => {
             return (
               chunk('icons', ['@iconify']) ??
               chunk('ui', ['@nuxt/ui', '@nuxt/icon', 'reka-ui', '@internationalized']) ??
+              chunk('broadcasting', ['pusher-js', 'laravel-echo', '@laravel/echo-vue']) ??
               chunk('core', ['vue', '@inertiajs', '@vueuse'])
             )
           },

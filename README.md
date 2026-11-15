@@ -15,6 +15,7 @@ A Laravel starter kit, built from the setup we use in [foxws/app](https://github
 - **Scout** with [foxws/laravel-scout-builder](https://github.com/foxws/laravel-scout-builder) for searchable, filterable and sortable endpoints (the `database` driver out of the box)
 - **spatie/laravel-data** with **spatie/laravel-typescript-transformer**, so data objects and enums become TypeScript types in `resources/js/types/generated.ts`
 - **Wayfinder** for typed routes and actions in TypeScript
+- **Reverb** with **Echo**, set up for [Inertia live props](https://inertiajs.com/docs/v3/data-props/live-props) and `useEcho()`
 - **Horizon** for Redis queues; see [docs/health-checks.md](docs/health-checks.md) for container health checks or adding spatie/laravel-health
 - **foxws/laravel-ddd** and **foxws/laravel-essentials** for the domain layout and strict defaults
 - Spatie packages: **csp**, **medialibrary**, **model-states**, **options**, **permission**, **responsecache**, **settings**, **tags** and **translatable**
@@ -47,6 +48,8 @@ composer dev
 
 The defaults use SQLite, the database queue and the database cache, so nothing else has to run locally. For production, switch the cache, sessions and the response cache to Redis (the response cache needs a store that supports tags).
 
+Reverb runs on `localhost:8080` as part of `composer dev`. The browser gets its connection details from the `echo` prop, so they can be changed without a rebuild; set `VITE_REVERB_HOST`, `VITE_REVERB_PORT` and `VITE_REVERB_SCHEME` when browsers reach Reverb through a reverse proxy. Without a `REVERB_APP_KEY`, Echo falls back to the null broadcaster.
+
 The seeder creates `administrator@example.com` with the password `password` and the `super-admin` role. Registration is off by default; turn it on in **Settings → Application** after you log in as the admin.
 
 ## Endpoints
@@ -59,10 +62,12 @@ The seeder creates `administrator@example.com` with the password `password` and 
 | GET    | `/api/v1/users` | Search users with `?query=`, sort with `?sort=-newest`, page with `?page[number]=2` (admins) |
 | GET    | `/horizon`      | Horizon dashboard (super-admins)                                                             |
 
+Private channels are authorized at `/broadcasting/auth` (session) and `/api/v1/broadcasting/auth` (Sanctum token), with the channels in `routes/channels.php`.
+
 ## Commands
 
 ```bash
-composer dev            # Octane, queue, logs and Vite
+composer dev            # Octane, queue, Reverb, logs and Vite
 composer test           # Pint check and Pest
 composer types:check    # Larastan
 composer types:generate # Write TypeScript types for #[TypeScript] classes and enums
