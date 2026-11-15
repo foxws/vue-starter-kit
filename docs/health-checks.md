@@ -10,13 +10,13 @@ Docker / Podman Compose:
 
 ```yaml
 services:
-  app:
-    healthcheck:
-      test: ["CMD", "curl", "-fsS", "http://localhost:8000/up"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 20s
+    app:
+        healthcheck:
+            test: ['CMD', 'curl', '-fsS', 'http://localhost:8000/up']
+            interval: 30s
+            timeout: 5s
+            retries: 3
+            start_period: 20s
 ```
 
 Containerfile / Dockerfile:
@@ -32,7 +32,7 @@ For Horizon or scheduler containers, which don't serve HTTP, check the process i
 
 ```yaml
 healthcheck:
-  test: ["CMD", "php", "artisan", "horizon:status"]
+    test: ['CMD', 'php', 'artisan', 'horizon:status']
 ```
 
 To check the database or Redis on `/up`, listen for the `DiagnosingHealth` event and throw when a dependency is down:
