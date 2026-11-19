@@ -27,8 +27,9 @@
         "scout-development",
         "wayfinder-development",
         "telescope-debugging",
-        "health-checks-development",
         "inertia-vue-development",
+        "echo-vue-development",
+        "echo-development",
         "tailwindcss-development",
         "laravel-ddd-development",
         "laravel-essentials-development",
@@ -40,6 +41,7 @@
         "spatie-javascript",
         "spatie-laravel-php",
         "spatie-security",
-        "spatie-version-control"
+        "spatie-version-control",
+        "health-checks-development"
     ]
 }
