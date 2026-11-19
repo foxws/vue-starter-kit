@@ -14,7 +14,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.4",
+        "php": "^8.5",
         "foxws/laravel-ddd": "^2.0",
         "foxws/laravel-essentials": "^2.0",
         "foxws/laravel-scout-builder": "^2.0",

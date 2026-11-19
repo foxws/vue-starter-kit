@@ -8,7 +8,7 @@ A Laravel starter kit, built from the setup we use in [foxws/app](https://github
 
 ## What's included
 
-- **Laravel 13** on PHP 8.4+, served by **Octane** with **FrankenPHP**
+- **Laravel 13** on PHP 8.5+, served by **Octane** with **FrankenPHP**
 - **Inertia v3**, **Vue 3**, **Nuxt UI 4** and **Tailwind CSS 4**, built with **Vite+**
 - **Fortify**: login, registration (toggled at runtime), password reset, email verification, password confirmation, two-factor authentication and passkeys
 - **Sanctum** for the API, with a versioned `/api/v1`
