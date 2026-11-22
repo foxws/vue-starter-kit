@@ -40,14 +40,11 @@ return Application::configure(basePath: $basePath)
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // Trust Proxies configuration
+        // Whom to trust is in config/essentials.php. X-Forwarded-Host is left out: a client could choose the host
         $middleware->trustProxies(
-            at: '*',
             headers: Request::HEADER_X_FORWARDED_FOR |
-                Request::HEADER_X_FORWARDED_HOST |
                 Request::HEADER_X_FORWARDED_PORT |
-                Request::HEADER_X_FORWARDED_PROTO |
-                Request::HEADER_X_FORWARDED_AWS_ELB,
+                Request::HEADER_X_FORWARDED_PROTO,
         );
 
         // Global middleware aliases for convenient usage in routes and controllers

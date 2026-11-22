@@ -54,13 +54,14 @@ return [
     | Trusted Proxies
     |--------------------------------------------------------------------------
     |
-    | The proxies whose X-Forwarded-* headers are believed: addresses or
-    | networks separated by commas, "private_ranges", or "*" for any.
-    | When empty, the proxies set in bootstrap/app.php are left alone.
+    | Whose X-Forwarded-For, -Port and -Proto headers are believed: addresses
+    | or networks separated by commas, "private_ranges", or "*" for any.
+    | "auto" is "*" on Laravel Cloud and "private_ranges" elsewhere.
+    | X-Forwarded-Host is never trusted.
     |
     */
 
-    'trusted_proxies' => env('TRUSTED_PROXIES'),
+    'trusted_proxies' => env('TRUSTED_PROXIES', 'auto'),
 
     /*
     |--------------------------------------------------------------------------
