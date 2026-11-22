@@ -8,12 +8,14 @@ use Foxws\Essentials\Configurables\AutomaticallyEagerLoadRelationships;
 use Foxws\Essentials\Configurables\EnforceMorphMap;
 use Foxws\Essentials\Configurables\FakeSleep;
 use Foxws\Essentials\Configurables\ForceHttpsScheme;
+use Foxws\Essentials\Configurables\ForceRootUrl;
 use Foxws\Essentials\Configurables\ForceSecurePassword;
 use Foxws\Essentials\Configurables\ImmutableDates;
 use Foxws\Essentials\Configurables\ModelShouldBeStrict;
 use Foxws\Essentials\Configurables\PreventStrayRequests;
 use Foxws\Essentials\Configurables\ProhibitDestructiveCommands;
 use Foxws\Essentials\Configurables\ResourceWithoutWrapping;
+use Foxws\Essentials\Configurables\SetTrustedProxies;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Tags\Tag;
 
@@ -37,13 +39,28 @@ return [
         EnforceMorphMap::class,
         FakeSleep::class,
         ForceHttpsScheme::class,
+        ForceRootUrl::class,
         ForceSecurePassword::class,
         ImmutableDates::class,
         ModelShouldBeStrict::class,
         PreventStrayRequests::class,
         ProhibitDestructiveCommands::class,
         ResourceWithoutWrapping::class,
+        SetTrustedProxies::class,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Trusted Proxies
+    |--------------------------------------------------------------------------
+    |
+    | The proxies whose X-Forwarded-* headers are believed: addresses or
+    | networks separated by commas, "private_ranges", or "*" for any.
+    | When empty, the proxies set in bootstrap/app.php are left alone.
+    |
+    */
+
+    'trusted_proxies' => env('TRUSTED_PROXIES'),
 
     /*
     |--------------------------------------------------------------------------

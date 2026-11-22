@@ -16,7 +16,7 @@
     "require": {
         "php": "^8.5",
         "foxws/laravel-ddd": "^2.0",
-        "foxws/laravel-essentials": "^2.0",
+        "foxws/laravel-essentials": "^3.0",
         "foxws/laravel-scout-builder": "^2.0",
         "inertiajs/inertia-laravel": "^3.7.0",
         "laravel/fortify": "^1.43.0",
