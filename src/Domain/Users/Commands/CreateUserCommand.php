@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Users\Commands;
 
-use Domain\Users\Actions\CreateNewUser;
+use Domain\Users\Actions\CreateUser;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Validation\ValidationException;
@@ -45,12 +45,7 @@ class CreateUserCommand extends Command implements Isolatable
         }
 
         try {
-            $user = app(CreateNewUser::class)->create([
-                'name' => $name,
-                'email' => $email,
-                'password' => $password,
-                'password_confirmation' => $password,
-            ]);
+            $user = app(CreateUser::class)(compact('name', 'email', 'password'));
         } catch (ValidationException $exception) {
             foreach ($exception->validator->errors()->all() as $message) {
                 error($message);
