@@ -45,7 +45,12 @@ class CreateUserCommand extends Command implements Isolatable
         }
 
         try {
-            $user = app(CreateNewUser::class)->create(compact('name', 'email', 'password'));
+            $user = app(CreateNewUser::class)->create([
+                'name' => $name,
+                'email' => $email,
+                'password' => $password,
+                'password_confirmation' => $password,
+            ]);
         } catch (ValidationException $exception) {
             foreach ($exception->validator->errors()->all() as $message) {
                 error($message);

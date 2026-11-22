@@ -75,7 +75,6 @@ const {
         <UInput
           v-model="form.password"
           name="password"
-          :model-modifiers="{ string: true, trim: true }"
           type="password"
           required
           autocomplete="current-password"
