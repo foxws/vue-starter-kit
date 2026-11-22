@@ -56,12 +56,12 @@ return [
     |
     | Whose X-Forwarded-For, -Port and -Proto headers are believed: addresses
     | or networks separated by commas, "private_ranges", or "*" for any.
-    | Laravel Cloud's load balancers have no fixed address, so it's "*" there.
+    | "auto" is "*" on Laravel Cloud and "private_ranges" elsewhere.
     | X-Forwarded-Host is never trusted.
     |
     */
 
-    'trusted_proxies' => env('TRUSTED_PROXIES', laravel_cloud() ? '*' : 'private_ranges'),
+    'trusted_proxies' => env('TRUSTED_PROXIES', 'auto'),
 
     /*
     |--------------------------------------------------------------------------
