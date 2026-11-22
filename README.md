@@ -50,6 +50,8 @@ The defaults use SQLite, the database queue and the database cache, so nothing e
 
 Reverb runs on `localhost:8080` as part of `composer dev`. The browser gets its connection details from the `echo` prop, so they can be changed without a rebuild; set `VITE_REVERB_HOST`, `VITE_REVERB_PORT` and `VITE_REVERB_SCHEME` when browsers reach Reverb through a reverse proxy. Without a `REVERB_APP_KEY`, Echo falls back to the null broadcaster.
 
+Behind a proxy, set `APP_URL` to the public address. `X-Forwarded-For`, `-Port` and `-Proto` count from private addresses, or from any on Laravel Cloud: set `TRUSTED_PROXIES` for a proxy with a public address. `X-Forwarded-Host` never counts, so the proxy has to pass `Host` on (nginx: `proxy_set_header Host $host;`).
+
 The seeder creates `administrator@example.com` with the password `password` and the `super-admin` role. Registration is off by default; turn it on in **Settings → Application** after you log in as the admin.
 
 ## Endpoints
