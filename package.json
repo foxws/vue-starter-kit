@@ -19,7 +19,7 @@
         "@laravel/echo-vue": "^2.6.3",
         "@laravel/passkeys": "^0.4.1",
         "@nuxt/ui": "^4.13.0",
-        "@vueuse/core": "^15.0.0",
+        "@vueuse/core": "^15.1.0",
         "laravel-echo": "^2.6.3",
         "pusher-js": "^8.6.0",
         "tailwindcss": "^4.3.5",
